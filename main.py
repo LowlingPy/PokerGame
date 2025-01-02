@@ -164,9 +164,13 @@ class PokerUI(QWidget):
                 labels[start + i].setPixmap(pixmap)
 
     def clear_card_labels(self):
-        for label in self.hero_card_labels + self.community_card_labels:
+        for label in self.hero_card_labels:
             label.clear()
-
+        for label in self.community_card_labels:
+            placeholder_pixmap = QPixmap(
+                "graphics/cards/back.png")  # Update with the correct path to your placeholder image
+            label.setPixmap(placeholder_pixmap)
+            
     def calculate_and_display_probabilities(self):
         hero = self.players[0]
         hero_cards = hero.cards
